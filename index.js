@@ -137,14 +137,12 @@ export const generateVoronoiDiagram = (options) => {
 
   options = {...defaultOptions, ...options};
 
-  options.points = [...Array(options.points)].map(() => {
-    return {
-      x: random.integer(0, options.width),
-      y: random.integer(0, options.height),
-    };
+  options.points = [...Array(options.points)].fill(null).map(() => {
+    return [
+      random.integer(0, options.width),
+      random.integer(0, options.height),
+    ];
   });
-
-  // options.points = options.points.map((point) => [point.x, point.y]);
 
   const delaunay = Delaunay.from(options.points);
   const voronoi = delaunay.voronoi([0, 0, options.width, options.height]);
