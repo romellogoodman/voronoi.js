@@ -4,8 +4,6 @@
 
 A library for generating [voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram).
 
-Demo: [Codesandbox Demo](https://codesandbox.io/s/flow-field-demo-kkzmg)
-
 This library borrows from the work of George Does Code:
 
 - [Crafting Organic Patterns With Voronoi Tessellations](https://georgefrancis.dev/writing/crafting-organic-patterns-with-voronoi-tessellations)
@@ -36,7 +34,7 @@ unpkg
 ### Use
 
 ```js
-import {generateVoronoiDiagram} from '@romellogoodman/flow-field';
+import {generateVoronoiDiagram} from '@romellogoodman/voronoi';
 
 const field = generateVoronoiDiagram({  width: 1024, height: 1024, points: [], relaxIterations: 8});
 
