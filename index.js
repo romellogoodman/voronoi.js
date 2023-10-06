@@ -1,10 +1,7 @@
 import {Delaunay} from 'd3-delaunay';
-import {MersenneTwister19937, Random} from 'random-js';
 
-const getRandom = (randomSeed) => {
-  const seed = randomSeed || MersenneTwister19937.autoSeed();
-
-  return new Random(seed);
+const randomNumberBetween = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 /**
@@ -133,14 +130,12 @@ const defaultOptions = {
 };
 
 export const generateVoronoiDiagram = (options) => {
-  const random = getRandom(options.seed);
-
   options = {...defaultOptions, ...options};
 
   options.points = [...Array(options.points)].fill(null).map(() => {
     return [
-      random.integer(0, options.width),
-      random.integer(0, options.height),
+      randomNumberBetween(0, options.width),
+      randomNumberBetween(0, options.height),
     ];
   });
 
